@@ -33,22 +33,31 @@ public class HerniPlan {
         Prostor daleckaLod = new Prostor("Dálecká Loď","Dálecká loď");
         Prostor chodbaKVezeni = new Prostor("Chodba k Vězení", "chodba, přes kterou se dostaneme do vězení");
         Prostor vezeni = new Prostor("Vězení","Vězení, kde je držena Rose");
-        Prostor zbrojnice = new Prostor("les","les s jahodami, malinami a pramenem vody");
-        Prostor chodbaKMustku = new Prostor("hluboký_les","temný les, ve kterém lze potkat vlka");
-        Prostor rozcestiUMustku = new Prostor("","");
-        Prostor sklad = new Prostor("","");
-        Prostor velitelskyMustek = new Prostor("","");
+        Prostor zbrojnice = new Prostor("Zbrojnice","Zbrojnice naplněná hromadou zbraní");
+        Prostor chodbaKMustku = new Prostor("Chodba k můstku","chodba kterou se jde k můstku");
+        Prostor rozcestiUMustku = new Prostor("Rozcestí u můstku","Tady se rozchází cesta do skladu a k můstku");
+        Prostor sklad = new Prostor("Skllad","Místo kde se nachází TARDIS");
+        Prostor velitelskyMustek = new Prostor("Můstek","Tady je Davros");
 
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
-        //sklad.setVychod(les);
-        //les.setVychod(sklad);
-        //les.setVychod(hlubokyLes);
-        //hlubokyLes.setVychod(les);
-        //hlubokyLes.setVychod(jeskyne);
-        //hlubokyLes.setVychod(chaloupka);
-        //jeskyne.setVychod(hlubokyLes);
-        //chaloupka.setVychod(hlubokyLes);
+        daleckaLod.setVychod(chodbaKVezeni);
+        daleckaLod.setVychod(zbrojnice);
+        chodbaKVezeni.setVychod(daleckaLod);
+        chodbaKVezeni.setVychod(vezeni);
+        chodbaKVezeni.setVychod(chodbaKMustku);
+        vezeni.setVychod(chodbaKVezeni);
+        zbrojnice.setVychod(daleckaLod);
+        zbrojnice.setVychod(chodbaKMustku);
+        chodbaKMustku.setVychod(zbrojnice);
+        chodbaKMustku.setVychod(chodbaKVezeni);
+        chodbaKMustku.setVychod(rozcestiUMustku);
+        rozcestiUMustku.setVychod(chodbaKMustku);
+        rozcestiUMustku.setVychod(sklad);
+        rozcestiUMustku.setVychod(velitelskyMustek);
+        sklad.setVychod(rozcestiUMustku);
+        velitelskyMustek.setVychod(rozcestiUMustku);
+
 
         Vec koste = new Vec("koste", true);
 
