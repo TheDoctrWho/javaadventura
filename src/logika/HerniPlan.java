@@ -28,6 +28,7 @@ public class HerniPlan {
      *  Vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví domeček.
      */
+    @SuppressWarnings("Duplicates")
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
         Prostor daleckaLod = new Prostor("Dálecká Loď","Dálecká loď");
