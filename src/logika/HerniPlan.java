@@ -32,7 +32,7 @@ public class HerniPlan {
         // vytvářejí se jednotlivé prostory
         Prostor daleckaLod = new Prostor("Dálecká Loď","Dálecká loď");
         Prostor chodbaKVezeni = new Prostor("Chodba k Vězení", "chodba, přes kterou se dostaneme do vězení");
-        Prostor vezeni = new Prostor("Vězení","stará plesnivá jeskyně");
+        Prostor vezeni = new Prostor("Vězení","Vězení, kde je držena Rose");
         Prostor zbrojnice = new Prostor("les","les s jahodami, malinami a pramenem vody");
         Prostor chodbaKMustku = new Prostor("hluboký_les","temný les, ve kterém lze potkat vlka");
         Prostor rozcestiUMustku = new Prostor("","");
