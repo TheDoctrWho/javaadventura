@@ -1,3 +1,10 @@
+<h1>PLÁNEK HRY „Doctor Who a útěk z Dálecké lodi.“</h1>
+<p>Doctor, který cestuje vždy se svým společníkem do všech koutů prostoru a času se dostal do problémů na jedné planetě ve vzdálené budoucnosti. Doctor spolu s Rose byl zajat Daleckou flotilou. Úkolem v této hře je osvobodit rose, a utéct za pomoci TARDIS do bezpečí.</p>
+
+<p>Věci označené * jsou sebratelné. </p>
+<p>Kolečko označuje postavu.</p>
+<p>Hvězdička označuje věci.</p>
+<p>Pozn. Šipky mezi místnostmi v tomto případě neznačí vztah nebo dědičnost, ale jsou pro ilustraci možných přechodů z místnosti do místnosti.</p>
 
 <h1>MANUÁL HRY „Doctor Who a útěk z Dálecké lodi.“</h1>
 <h3>Cíl hry</h3>
