@@ -117,8 +117,38 @@ public class Prostor {
      * @return Dlouhý popis prostoru
      */
     public String dlouhyPopis() {
-        return "Jsi v mistnosti/prostoru " + popis + ".\n"
-                + popisVychodu();
+        return "Jsi v mistnosti: " + popis + ".\n"
+                + popisVychodu() + "\n" +
+                lide() + "\n" +
+                veci() ;
+    }
+
+    /**
+     * Vrací textový řetězec, který popisuje lidi v prostoru, například:
+     * "Osoby v místnosti: Oswin".
+     *
+     * @return Popis Osob - jmen osob v místnosti
+     */
+    public String lide(){
+        String vracenyText = "Osoby v místnosti: ";
+        for (String osoby : lide.keySet()) {
+            vracenyText += " | " + osoby;
+        }
+        return vracenyText;
+    }
+
+    /**
+     * Vrací textový řetězec, který popisuje lidi v prostoru, například:
+     * "Osoby v místnosti: Oswin".
+     *
+     * @return Popis Osob - jmen osob v místnosti
+     */
+    public String veci(){
+        String vracenyText = "Věci v místnosti: ";
+        for (String item : veci.keySet()) {
+            vracenyText += " | " + item;
+        }
+        return vracenyText;
     }
 
     /**
@@ -128,9 +158,9 @@ public class Prostor {
      * @return Popis východů - názvů sousedních prostorů
      */
     private String popisVychodu() {
-        String vracenyText = "východy:";
+        String vracenyText = "východy z místnosti: ";
         for (Prostor sousedni : vychody) {
-            vracenyText += " " + sousedni.getNazev();
+            vracenyText += " | " + sousedni.getNazev();
         }
         return vracenyText;
     }
@@ -180,6 +210,10 @@ public class Prostor {
 
     public Vec odstranVec(String nazevVeci) {
         return veci.remove(nazevVeci);
+    }
+
+    public void pridejOsobu(Clovek osoba) {
+        lide.put(osoba.getNazev(), osoba);
     }
 
     public boolean clovekJeVProstoru(String clovek) {

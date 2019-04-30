@@ -15,18 +15,18 @@ public class PrikazMluv implements IPrikaz {
         }
         String clovek = parametry[0];
         if (!herniPlan.getAktualniProstor().clovekJeVProstoru(clovek)) {
-            return "Věc s názvem " +
+            return "Osoba " +
                     clovek +
                     " se v prostoru nenachází.";
         }
         Clovek clovicek = herniPlan.getAktualniProstor().getLide().get(clovek);
         if (!clovicek.isMluvi()) {
-            return "Tuto vec neni mozne prenest!";
+            return "Nechci s tebou mluvit";
         }
         herniPlan
                 .getAktualniProstor()
                 .odstranVec(clovek);
-        return "Sebral jsi vec " + clovek;
+        return "Sebral jsi vec " + clovek; //rozhovory
     }
 
     @Override
