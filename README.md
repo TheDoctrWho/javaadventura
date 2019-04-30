@@ -1,7 +1,10 @@
-<h1>PLÁNEK HRY „Doctor Who a útěk z Dálecké lodi.“</h1>
+<h1 align=center>Doctor Who a útěk z Dálecké lodi.</h1>
+<p align=center>semestrální práce z předmětu 4IT101 Programování v Javě LS2019</p>
+
+<h1>PLÁNEK HRY</h1>
 <p>Doctor, který cestuje vždy se svým společníkem do všech koutů prostoru a času se dostal do problémů na jedné planetě ve vzdálené budoucnosti. Doctor spolu s Rose byl zajat Daleckou flotilou. Úkolem v této hře je osvobodit rose, a utéct za pomoci TARDIS do bezpečí.</p>
 
-<h1>MANUÁL HRY „Doctor Who a útěk z Dálecké lodi.“</h1>
+<h1>MANUÁL HRY </h1>
 <h3>Cíl hry</h3>
 <p>Doctor spolu s Rose byl zajat Daleckou flotilou. Úkolem v této hře je osvobodit rose, a utéct za pomoci TARDIS do bezpečí.</p>
 <p>Jak hru spustit</p>
