@@ -3,11 +3,9 @@ package logika;
 public class Clovek {
 
     private String nazev;
-    private final boolean mluvi;
 
-    public Clovek(String nazev, boolean mluvi) {
+    public Clovek(String nazev) {
         this.nazev = nazev;
-        this.mluvi = mluvi;
     }
 
     public String getNazev() {
@@ -18,8 +16,7 @@ public class Clovek {
         this.nazev = nazev;
     }
 
-    public boolean isMluvi() {
-        return mluvi;
+    public String toString(){
+        return nazev;
     }
-
 }
