@@ -59,13 +59,33 @@ public class HerniPlan {
         sklad.setVychod(rozcestiUMustku);
         velitelskyMustek.setVychod(rozcestiUMustku);
 
+        //veci
+        Vec sroubovak = new Vec("Šroubovák", true);
+        Vec zbran = new Vec("Zbraň", false);
+        Vec pacidlo = new Vec("Páčidlo",true);
+        Vec noviny = new Vec("Dálecké noviny",true);
+        Vec sachta = new Vec("Větrací šachta",false);
 
-        Vec koste = new Vec("koste", true);
+        //veci v prostoru
+        zbrojnice.pridejVec(zbran);
+        zbrojnice.pridejVec(sroubovak);
+        daleckaLod.pridejVec(noviny);
+        chodbaKVezeni.pridejVec(pacidlo);
+        chodbaKVezeni.pridejVec(sachta);
 
-        Clovek Dalek = new Clovek("Dalek", true);
+        //lide
+        Clovek dalek = new Clovek("Dalek", true);
+        Clovek oswin = new Clovek("Oswin",true);
+        Clovek sec = new Clovek("Sec",true);
+        Clovek rose = new Clovek("Rose",true);
 
-        //domecek.pridejVec(koste);
-                
+        //kde jsou lide
+        zbrojnice.pridejOsobu(oswin);
+        chodbaKVezeni.pridejOsobu(sec);
+        rozcestiUMustku.pridejOsobu(dalek);
+        vezeni.pridejOsobu(rose);
+
+
         aktualniProstor = daleckaLod;  // hra začíná v domečku
     }
     

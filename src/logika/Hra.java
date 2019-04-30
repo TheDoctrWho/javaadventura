@@ -34,7 +34,8 @@ public class Hra implements IHra {
      */
     public String vratUvitani() {
         return "Vítejte!\n" +
-               "Toto je příběh o Červené Karkulce, babičce a vlkovi.\n" +
+               "Doctor spolu s Rose byl zajat Daleckou flotilou.\n" +
+                "Úkolem v této hře je osvobodit rose, a utéct za pomoci TARDIS do bezpečí.\n" +
                "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                "\n" +
                herniPlan.getAktualniProstor().dlouhyPopis();
@@ -44,7 +45,7 @@ public class Hra implements IHra {
      *  Vrátí závěrečnou zprávu pro hráče.
      */
     public String vratEpilog() {
-        return "Dík, že jste si zahráli.  Ahoj.";
+        return "Děkuji, že jste tuto hru zkusili už se ale nevracejte. ADIOS :D";
     }
     
     /** 
