@@ -20,8 +20,8 @@ public class Prostor {
     private String nazev;
     private String popis;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
-    private Map<String, Vec> veci;
-    private Map<String, Clovek> lide;
+    private Set<Vec> predmety;
+    private Set<Clovek> lide;
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -35,8 +35,8 @@ public class Prostor {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
-        veci = new HashMap<>();
-        lide = new HashMap<>();
+        predmety = new HashSet<>();
+        lide = new HashSet<>();
     }
 
     /**
@@ -120,7 +120,7 @@ public class Prostor {
         return "Jsi v mistnosti: " + popis + ".\n"
                 + popisVychodu() + "\n" +
                 lide() + "\n" +
-                veci() ;
+                predmety() ;
     }
 
     /**
@@ -131,7 +131,7 @@ public class Prostor {
      */
     public String lide(){
         String vracenyText = "Osoby v místnosti: ";
-        for (String osoby : lide.keySet()) {
+        for (Clovek osoby : lide) {
             vracenyText += " | " + osoby;
         }
         return vracenyText;
@@ -143,9 +143,9 @@ public class Prostor {
      *
      * @return Popis Osob - jmen osob v místnosti
      */
-    public String veci(){
+    public String predmety(){
         String vracenyText = "Věci v místnosti: ";
-        for (String item : veci.keySet()) {
+        for (Vec item : predmety) {
             vracenyText += " | " + item;
         }
         return vracenyText;
@@ -200,31 +200,40 @@ public class Prostor {
         return Collections.unmodifiableCollection(vychody);
     }
 
-    public void pridejVec(Vec vec) {
-        veci.put(vec.getNazev(), vec);
+    public void pridejVec(Vec vec){
+        predmety.add(vec);
     }
 
-    public boolean vecJeVProstoru(String nazevVeci) {
-        return veci.containsKey(nazevVeci);
+    public boolean obsahujePredmet(String nazevPredmetu){
+        for(Vec vec : predmety){
+            if(vec.getNazev().equals(nazevPredmetu)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public Vec odstranVec(String nazevVeci) {
-        return veci.remove(nazevVeci);
+    public Vec odeberVec(String nazevPredmetu){
+        for (Vec vec : predmety){
+            if(vec.getNazev().equals(nazevPredmetu) && vec.jeSebratelna()){
+                predmety.remove(vec);
+                return vec;
+            }
+        }
+        return null;
     }
 
     public void pridejOsobu(Clovek osoba) {
-        lide.put(osoba.getNazev(), osoba);
+        lide.add(osoba);
     }
 
     public boolean clovekJeVProstoru(String clovek) {
-        return lide.containsKey(clovek);
+        for(Clovek osoby  : lide){
+            if(osoby.getNazev().equals(clovek)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public Map<String, Clovek> getLide(){
-        return lide;
-    }
-
-    public Map<String, Vec> getVeci() {
-        return veci;
-    }
 }

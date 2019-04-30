@@ -15,20 +15,21 @@ package logika;
 public class HerniPlan {
     
     private Prostor aktualniProstor;
-    
+    private Batoh batoh;
+
      /**
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví halu.
      */
     public HerniPlan() {
         zalozProstoryHry();
+        batoh = new Batoh();
 
     }
     /**
      *  Vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví Dálecká Loď.
      */
-    @SuppressWarnings("Duplicates")
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
         Prostor daleckaLod = new Prostor("Dálecká Loď","Dálecká loď");
@@ -107,8 +108,12 @@ public class HerniPlan {
      *
      *@param  prostor nový aktuální prostor
      */
-    public void setAktualniProstor(Prostor prostor) {
-       aktualniProstor = prostor;
+    public void setAktualniProstor(Prostor prostor){
+    aktualniProstor = prostor;
+    }
+
+    public Batoh getBatoh() {
+        return batoh;
     }
 
 }
