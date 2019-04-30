@@ -59,6 +59,7 @@ public class HerniPlan {
         sklad.setVychod(rozcestiUMustku);
         velitelskyMustek.setVychod(rozcestiUMustku);
 
+
         //veci
         Vec sroubovak = new Vec("Šroubovák", true);
         Vec zbran = new Vec("Zbraň", false);
