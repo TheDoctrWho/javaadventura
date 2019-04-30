@@ -120,7 +120,7 @@ public class Prostor {
         return "Jsi v mistnosti: " + popis + ".\n"
                 + popisVychodu() + "\n" +
                 lide() + "\n" +
-                veci();
+                veci() ;
     }
 
     /**
@@ -145,8 +145,8 @@ public class Prostor {
      */
     public String veci(){
         String vracenyText = "Věci v místnosti: ";
-        for (String lide : veci.keySet()) {
-            vracenyText += " | " + lide;
+        for (String item : veci.keySet()) {
+            vracenyText += " | " + item;
         }
         return vracenyText;
     }
