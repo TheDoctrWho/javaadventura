@@ -1,5 +1,7 @@
 package logika;
 
+import java.util.List;
+
 /**
  *  Třída PrikazJdi implementuje pro hru příkaz jdi.
  *  Tato třída je součástí jednoduché textové hry.
@@ -7,8 +9,8 @@ package logika;
  *@author     Jarmila Pavlickova, Luboš Pavlíček
  *@version    pro školní rok 2016/2017
  */
-class PrikazSeber implements IPrikaz {
-    private static final String NAZEV = "seber";
+class PrikazKapsy implements IPrikaz {
+    private static final String NAZEV = "kapsy";
     private HerniPlan plan;
 
     /**
@@ -16,8 +18,9 @@ class PrikazSeber implements IPrikaz {
      *
      *  @param plan herní plán, ve kterém se bude ve hře "chodit"
      */
-    public PrikazSeber(HerniPlan plan) {
+    public PrikazKapsy(HerniPlan plan) {
         this.plan = plan;
+
     }
 
     /**
@@ -31,29 +34,21 @@ class PrikazSeber implements IPrikaz {
      */
     @Override
     public String provedPrikaz(String... parametry) {
-        if (parametry.length == 0) {
+        if (parametry.length != 0) {
             // pokud chybí druhé slovo (sousední prostor), tak ....
-            return "Co mám sebrat?";
+            return "Toto je bezparametrický příkaz";
         }
 
-        String nazevVeci = parametry[0];
-
-        Batoh batoh = plan.getBatoh();
-        Prostor aktProstor = plan.getAktualniProstor();
-        if(aktProstor.obsahujePredmet(nazevVeci)){
-            if(!batoh.jeVBatohuMisto()){
-                return "V kapsách už není místo.";
-            } else if (aktProstor.lzePredmetSebrat(nazevVeci)){
-                Vec newvec = aktProstor.odeberVec(nazevVeci);
-                batoh.pridejVec(newvec);
-                return "Věc byla přidána do kapsy.";
-            }
-            return "Věc nelze sebrat!";
-
-
-
+        Batoh kapsy = plan.getBatoh();
+        if (kapsy.getObsahBatohu().size() == 0){
+            return "Kapsy jsou prázdné";
         }
-        return "Tady taková věc není!";
+        String vracenyText = "Věci v kapsách: | ";
+        for (Vec batoh : kapsy.getObsahBatohu()) {
+            vracenyText += batoh.toString() + " | ";
+        }
+        return vracenyText;
+
     }
 
     /**

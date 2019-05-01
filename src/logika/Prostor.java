@@ -216,6 +216,15 @@ public class Prostor {
         predmety.add(vec);
     }
 
+    public boolean lzePredmetSebrat(String nazevPredmetu){
+        for(Vec vec : predmety){
+            if(vec.getNazev().equals(nazevPredmetu)){
+                return vec.jeSebratelna();
+            }
+        }
+        return false;
+    }
+
     public boolean obsahujePredmet(String nazevPredmetu){
         for(Vec vec : predmety){
             if(vec.getNazev().equals(nazevPredmetu)){
