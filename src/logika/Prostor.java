@@ -22,6 +22,7 @@ public class Prostor {
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
     private Set<Vec> predmety;
     private Set<Clovek> lide;
+    private Set<Batoh> kapsy;
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -37,6 +38,7 @@ public class Prostor {
         vychody = new HashSet<>();
         predmety = new HashSet<>();
         lide = new HashSet<>();
+        kapsy = new HashSet<>();
     }
 
     /**
@@ -120,7 +122,8 @@ public class Prostor {
         return "Jsi v mistnosti: " + popis + ".\n"
                 + popisVychodu() + "\n" +
                 lide() + "\n" +
-                predmety() ;
+                predmety() +"\n"+
+                obsahBatohu() ;
     }
 
     /**
@@ -129,8 +132,8 @@ public class Prostor {
      *
      * @return Popis Osob - jmen osob v místnosti
      */
-    public String lide(){
-        String vracenyText = "Osoby v místnosti: ";
+    private String lide(){
+        String vracenyText = "Osoby v místnosti: | ";
         for (Clovek osoby : lide) {
             vracenyText += " | " + osoby;
         }
@@ -143,10 +146,10 @@ public class Prostor {
      *
      * @return Popis Osob - jmen osob v místnosti
      */
-    public String predmety(){
-        String vracenyText = "Věci v místnosti: ";
+    private String predmety(){
+        String vracenyText = "Věci v místnosti: | ";
         for (Vec item : predmety) {
-            vracenyText += " | " + item;
+            vracenyText +=  item + " | ";
         }
         return vracenyText;
     }
@@ -158,10 +161,19 @@ public class Prostor {
      * @return Popis východů - názvů sousedních prostorů
      */
     private String popisVychodu() {
-        String vracenyText = "východy z místnosti: ";
+        String vracenyText = "východy z místnosti: | ";
         for (Prostor sousedni : vychody) {
-            vracenyText += " | " + sousedni.getNazev();
+            vracenyText += sousedni.getNazev() + " | ";
         }
+        return vracenyText;
+    }
+
+    private String obsahBatohu() {
+       String vracenyText = "Věci v kapsách: | ";
+        for (Batoh batoh : kapsy) {
+            vracenyText += batoh.getObsahBatohu() + " | ";
+        }
+
         return vracenyText;
     }
 
@@ -202,6 +214,15 @@ public class Prostor {
 
     public void pridejVec(Vec vec){
         predmety.add(vec);
+    }
+
+    public boolean lzePredmetSebrat(String nazevPredmetu){
+        for(Vec vec : predmety){
+            if(vec.getNazev().equals(nazevPredmetu)){
+                return vec.jeSebratelna();
+            }
+        }
+        return false;
     }
 
     public boolean obsahujePredmet(String nazevPredmetu){

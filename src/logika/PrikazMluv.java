@@ -19,14 +19,7 @@ public class PrikazMluv implements IPrikaz {
                     clovek +
                     " se v prostoru nenachází.";
         }
-        Clovek clovicek = herniPlan.getAktualniProstor().getLide().get(clovek);
-        if (!clovicek.isMluvi()) {
-            return "Nechci s tebou mluvit";
-        }
-        herniPlan
-                .getAktualniProstor()
-                .odstranVec(clovek);
-        return "Sebral jsi vec " + clovek; //rozhovory
+        return "testujeme";
     }
 
     @Override

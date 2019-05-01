@@ -26,6 +26,10 @@ public class Vec {
         return false;
     }
 
+    public String toString(){
+        return nazev;
+    }
+
     public int hashCode() {
         return nazev.hashCode();
     }

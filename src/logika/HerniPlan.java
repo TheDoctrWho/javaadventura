@@ -30,16 +30,17 @@ public class HerniPlan {
      *  Vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví Dálecká Loď.
      */
+    @SuppressWarnings("Duplicates")
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor daleckaLod = new Prostor("Dálecká Loď","Dálecká loď");
-        Prostor chodbaKVezeni = new Prostor("Chodba k Vězení", "chodba, přes kterou se dostaneme do vězení");
-        Prostor vezeni = new Prostor("Vězení","Vězení, kde je držena Rose");
-        Prostor zbrojnice = new Prostor("Zbrojnice","Zbrojnice naplněná hromadou zbraní");
-        Prostor chodbaKMustku = new Prostor("Chodba k můstku","chodba kterou se jde k můstku");
-        Prostor rozcestiUMustku = new Prostor("Rozcestí u můstku","Tady se rozchází cesta do skladu a k můstku");
-        Prostor sklad = new Prostor("Skllad","Místo kde se nachází TARDIS");
-        Prostor velitelskyMustek = new Prostor("Můstek","Tady je Davros");
+        Prostor daleckaLod = new Prostor("lod","Dálecká loď");
+        Prostor chodbaKVezeni = new Prostor("chodba1", "Chodba k Vězení");
+        Prostor vezeni = new Prostor("vezeni","Vězení, kde je držena Rose");
+        Prostor zbrojnice = new Prostor("zbrojnice","Zbrojnice naplněná hromadou zbraní");
+        Prostor chodbaKMustku = new Prostor("chodba2","Chodba k můstku");
+        Prostor rozcestiUMustku = new Prostor("rozcestí","Tady se rozchází cesta do skladu a k můstku");
+        Prostor sklad = new Prostor("sklad","Místo, kde se nachází TARDIS");
+        Prostor velitelskyMustek = new Prostor("mustek","Můstek - Tady je Davros");
         Prostor tardis = new Prostor("TARDIS", "HAPPY END");
 
 
@@ -64,11 +65,11 @@ public class HerniPlan {
 
 
         //veci
-        Vec sroubovak = new Vec("Šroubovák", true);
-        Vec zbran = new Vec("Zbraň", false);
-        Vec pacidlo = new Vec("Páčidlo",true);
-        Vec noviny = new Vec("Dálecké noviny",true);
-        Vec sachta = new Vec("Větrací šachta",false);
+        Vec sroubovak = new Vec("sroubovak", true);
+        Vec zbran = new Vec("zbran", false);
+        Vec pacidlo = new Vec("pacidlo",true);
+        Vec noviny = new Vec("noviny",true);
+        Vec sachta = new Vec("sachta",false);
 
         //veci v prostoru
         zbrojnice.pridejVec(zbran);
@@ -78,10 +79,10 @@ public class HerniPlan {
         chodbaKVezeni.pridejVec(sachta);
 
         //lide
-        Clovek dalek = new Clovek("Dalek", true);
-        Clovek oswin = new Clovek("Oswin",true);
-        Clovek sec = new Clovek("Sec",true);
-        Clovek rose = new Clovek("Rose",true);
+        Clovek dalek = new Clovek("Dalek");
+        Clovek oswin = new Clovek("Oswin");
+        Clovek sec = new Clovek("Sec");
+        Clovek rose = new Clovek("Rose");
 
         //kde jsou lide
         zbrojnice.pridejOsobu(oswin);
