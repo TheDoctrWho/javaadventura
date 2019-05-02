@@ -76,20 +76,21 @@ public class HerniPlan {
         daleckaLod.pridejVec(noviny);
         chodbaKVezeni.pridejVec(pacidlo);
         chodbaKVezeni.pridejVec(sachta);
-        sklad.pridejVec(tardis
-        );
+        sklad.pridejVec(tardis);
 
         //lide
         Clovek dalek = new Clovek("Dalek");
         Clovek oswin = new Clovek("Oswin");
         Clovek sec = new Clovek("Sec");
         Clovek rose = new Clovek("Rose");
+        Clovek davros = new Clovek("Davros");
 
         //kde jsou lide
         zbrojnice.pridejOsobu(oswin);
         chodbaKVezeni.pridejOsobu(sec);
         rozcestiUMustku.pridejOsobu(dalek);
         vezeni.pridejOsobu(rose);
+        velitelskyMustek.pridejOsobu(davros);
 
 
         aktualniProstor = daleckaLod;  // hra začíná v domečku

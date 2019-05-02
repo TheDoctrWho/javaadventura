@@ -27,4 +27,23 @@ public class Batoh {
     public List<Vec> getObsahBatohu(){
         return obsahBatohu;
     }
+
+    public boolean obsahujePredmet(String nazevPredmetu){
+        for(Vec vec : obsahBatohu){
+            if(vec.getNazev().equals(nazevPredmetu)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Vec odeberVec(String nazevPredmetu){
+        for (Vec vec : obsahBatohu){
+            if(vec.getNazev().equals(nazevPredmetu)){
+                obsahBatohu.remove(vec);
+                return vec;
+            }
+        }
+        return null;
+    }
 }

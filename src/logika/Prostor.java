@@ -131,6 +131,9 @@ public class Prostor {
      */
     private String lide(){
         String vracenyText = "Osoby v místnosti: | ";
+        if (lide.isEmpty()){
+            return vracenyText + "-------|";
+        }
         for (Clovek osoby : lide) {
             vracenyText += " | " + osoby;
         }
@@ -143,8 +146,11 @@ public class Prostor {
      *
      * @return Popis Osob - jmen osob v místnosti
      */
-    private String predmety(){
+    public String predmety(){
         String vracenyText = "Věci v místnosti: | ";
+        if (predmety.isEmpty()){
+            return vracenyText + "-------|";
+        }
         for (Vec item : predmety) {
             vracenyText +=  item + " | ";
         }
