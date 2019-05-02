@@ -41,7 +41,6 @@ public class HerniPlan {
         Prostor rozcestiUMustku = new Prostor("rozcestí","Tady se rozchází cesta do skladu a k můstku");
         Prostor sklad = new Prostor("sklad","Místo, kde se nachází TARDIS");
         Prostor velitelskyMustek = new Prostor("mustek","Můstek - Tady je Davros");
-        Prostor tardis = new Prostor("TARDIS", "HAPPY END");
 
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
@@ -61,7 +60,6 @@ public class HerniPlan {
         rozcestiUMustku.setVychod(velitelskyMustek);
         sklad.setVychod(rozcestiUMustku);
         velitelskyMustek.setVychod(rozcestiUMustku);
-        sklad.setVychod(tardis);
 
 
         //veci
@@ -70,6 +68,7 @@ public class HerniPlan {
         Vec pacidlo = new Vec("pacidlo",true);
         Vec noviny = new Vec("noviny",true);
         Vec sachta = new Vec("sachta",false);
+        Vec tardis = new Vec("TARDIS", false);
 
         //veci v prostoru
         zbrojnice.pridejVec(zbran);
@@ -77,6 +76,8 @@ public class HerniPlan {
         daleckaLod.pridejVec(noviny);
         chodbaKVezeni.pridejVec(pacidlo);
         chodbaKVezeni.pridejVec(sachta);
+        sklad.pridejVec(tardis
+        );
 
         //lide
         Clovek dalek = new Clovek("Dalek");

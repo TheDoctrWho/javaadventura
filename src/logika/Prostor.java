@@ -22,7 +22,6 @@ public class Prostor {
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
     private Set<Vec> predmety;
     private Set<Clovek> lide;
-    private Set<Batoh> kapsy;
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -38,7 +37,6 @@ public class Prostor {
         vychody = new HashSet<>();
         predmety = new HashSet<>();
         lide = new HashSet<>();
-        kapsy = new HashSet<>();
     }
 
     /**
