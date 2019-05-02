@@ -1,11 +1,11 @@
 package logika;
 
-public class PrikazMluv implements IPrikaz {
-    private static final String NAZEV = "mluv";
+public class PrikazDej implements IPrikaz {
+    private static final String NAZEV = "dej";
     private final HerniPlan herniPlan;
     private Hra hra;
 
-    public PrikazMluv(HerniPlan herniPlan, Hra hra) {
+    public PrikazDej(HerniPlan herniPlan, Hra hra) {
         this.herniPlan = herniPlan;
         this.hra = hra;
     }
@@ -13,14 +13,15 @@ public class PrikazMluv implements IPrikaz {
     @Override
     public String provedPrikaz(String... parametry) {
         if (parametry.length == 0) {
-            return "Nevím s kým mluvit";
+            return "Nevím co mám komu dát";
         }
-        String clovek = parametry[0];
+        String vec = parametry[0];
+        String clovek = parametry[1];
         if (!herniPlan.getAktualniProstor().clovekJeVProstoru(clovek)) {
             return "Osoba " + clovek + " se v prostoru nenachází.";
         }
         Rozhovory rozhovor = new Rozhovory(herniPlan, hra);
-        String odpoved = rozhovor.pokec(clovek, "");
+        String odpoved = rozhovor.pokec(clovek, vec);
         return odpoved;
     }
 

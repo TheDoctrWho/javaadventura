@@ -70,6 +70,7 @@ public class HerniPlan {
         Vec sachta = new Vec("sachta",false);
         Vec tardis = new Vec("TARDIS", false);
 
+
         //veci v prostoru
         zbrojnice.pridejVec(zbran);
         zbrojnice.pridejVec(sroubovak);
