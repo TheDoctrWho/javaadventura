@@ -38,7 +38,7 @@ public class Hra implements IHra {
         return "Vítejte!\n" +
                "Doctor spolu s Rose byl zajat Daleckou flotilou.\n" +
                 "Úkolem v této hře je osvobodit rose, a utéct za pomoci TARDIS do bezpečí.\n" +
-               "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
+               "Napište 'help', pokud si nevíte rady, jak hrát dál.\n" +
                "\n" +
                herniPlan.getAktualniProstor().dlouhyPopis();
     }

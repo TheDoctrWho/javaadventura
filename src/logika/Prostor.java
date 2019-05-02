@@ -122,8 +122,7 @@ public class Prostor {
         return "Jsi v mistnosti: " + popis + ".\n"
                 + popisVychodu() + "\n" +
                 lide() + "\n" +
-                predmety() +"\n"+
-                obsahBatohu() ;
+                predmety()  ;
     }
 
     /**
@@ -168,14 +167,6 @@ public class Prostor {
         return vracenyText;
     }
 
-    private String obsahBatohu() {
-       String vracenyText = "Věci v kapsách: | ";
-        for (Batoh batoh : kapsy) {
-            vracenyText += batoh.getObsahBatohu() + " | ";
-        }
-
-        return vracenyText;
-    }
 
     /**
      * Vrací prostor, který sousedí s aktuálním prostorem a jehož název je zadán
