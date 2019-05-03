@@ -24,7 +24,7 @@ public class Hra implements IHra {
         herniPlan = new HerniPlan();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
-        platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan, this));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
         platnePrikazy.vlozPrikaz(new PrikazMluv(herniPlan,this));
         platnePrikazy.vlozPrikaz(new PrikazDej(herniPlan,this));
@@ -50,7 +50,7 @@ public class Hra implements IHra {
      *  Vrátí závěrečnou zprávu pro hráče.
      */
     public String vratEpilog() {
-        return "Děkuji, že jste tuto hru zkusili už se ale nevracejte. ADIOS :D";
+        return "\n Děkuji, že jste tuto hru zkusili. ADIOS :D \n";
     }
     
     /** 

@@ -16,7 +16,7 @@ public class Rozhovory {
                 if (item.contains("sroubovak")){
                     odpoved = "Nechoď na můstek je tam Davros";
                 } else {
-                    odpoved = "Exterminate";
+                    odpoved = "EXTERMINATE! EXTERMINATE!";
                     hra.setKonecHry(true);
                 }
                 break;
@@ -42,7 +42,7 @@ public class Rozhovory {
                 }
                 break;
             case "Rose":                                                        //zatim BETA
-                if (item.contains("Šroubovák")){
+                if (item.contains("sroubovak")){
                     odpoved = "Pojdmě musíme se odtud dostat";
                     Clovek rose = new Clovek("Rose");
                     rose.setSpolecnik(true);

@@ -10,14 +10,16 @@ package logika;
 class PrikazJdi implements IPrikaz {
     private static final String NAZEV = "jdi";
     private HerniPlan plan;
+    private Hra hra;
     
     /**
     *  Konstruktor třídy
     *  
     *  @param plan herní plán, ve kterém se bude ve hře "chodit" 
     */    
-    public PrikazJdi(HerniPlan plan) {
+    public PrikazJdi(HerniPlan plan, Hra hra) {
         this.plan = plan;
+        this.hra = hra;
     }
 
     /**
@@ -39,12 +41,30 @@ class PrikazJdi implements IPrikaz {
         String smer = parametry[0];
 
         // zkoušíme přejít do sousedního prostoru
-        Prostor sousedniProstor = plan
-                .getAktualniProstor()
-                .vratSousedniProstor(smer);
+        Prostor sousedniProstor = plan.getAktualniProstor().vratSousedniProstor(smer);
+        Batoh kapsy = plan.getBatoh();
+        Rozhovory rozhovor = new Rozhovory(plan, hra);
 
         if (sousedniProstor == null) {
             return "Tam se odsud jít nedá!";
+        } else if (smer.contains("chodba2") && !kapsy.obsahujePredmet("mapa")){
+            return "Tam se bez mapy neodvážím!";
+        } else if (smer.contains("mustek")){
+            plan.setAktualniProstor(sousedniProstor);
+            return sousedniProstor.dlouhyPopis() + "\n" + "\n" + rozhovor.pokec("Davros","");
+        } else if (smer.contains("rozcesti") && !kapsy.obsahujePredmet("sroubovak")){
+            plan.setAktualniProstor(sousedniProstor);
+            return sousedniProstor.dlouhyPopis() + "\n" + "\n" + rozhovor.pokec("Dalek","");
+        } else if (smer.contains("rozcesti") && kapsy.obsahujePredmet("sroubovak")){
+            plan.setAktualniProstor(sousedniProstor);
+            return sousedniProstor.dlouhyPopis() + "\n" + "\n" + rozhovor.pokec("Dalek","sroubovak");
+        } else if (smer.contains("zbrojnice") && kapsy.obsahujePredmet("pacidlo")){
+            plan.setAktualniProstor(sousedniProstor);
+            return sousedniProstor.dlouhyPopis() + "\n" + "\n Vždyť jsi Dalek Oswin!!!";
+        } else if (kapsy.obsahujePredmet("pacidlo")){
+            plan.setAktualniProstor(sousedniProstor);
+            return sousedniProstor.dlouhyPopis() + "\n" + "\n" + "Doktore prosím pomoz mi jsem tu uvězněná a " +
+                    "potřebuji se odtud dostat jsem ve Zbrojnici, pomož mi PROSÍM!";
         }
         else {
             plan.setAktualniProstor(sousedniProstor);

@@ -38,7 +38,7 @@ public class HerniPlan {
         Prostor vezeni = new Prostor("vezeni","Vězení, kde je držena Rose");
         Prostor zbrojnice = new Prostor("zbrojnice","Zbrojnice naplněná hromadou zbraní");
         Prostor chodbaKMustku = new Prostor("chodba2","Chodba k můstku");
-        Prostor rozcestiUMustku = new Prostor("rozcestí","Tady se rozchází cesta do skladu a k můstku");
+        Prostor rozcestiUMustku = new Prostor("rozcesti","Tady se rozchází cesta do skladu a k můstku");
         Prostor sklad = new Prostor("sklad","Místo, kde se nachází TARDIS");
         Prostor velitelskyMustek = new Prostor("mustek","Můstek - Tady je Davros");
 

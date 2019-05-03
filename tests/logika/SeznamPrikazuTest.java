@@ -1,9 +1,9 @@
 package logika;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 /*******************************************************************************
  * Testovací třída SeznamPrikazuTest slouží ke komplexnímu otestování třídy  
@@ -22,7 +22,7 @@ public class SeznamPrikazuTest
     public void setUp() {
         hra = new Hra();
         prKonec = new PrikazKonec(hra);
-        prJdi = new PrikazJdi(hra.getHerniPlan());
+        prJdi = new PrikazJdi(hra.getHerniPlan(), hra);
     }
 
     @Test
