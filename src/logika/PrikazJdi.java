@@ -65,6 +65,11 @@ class PrikazJdi implements IPrikaz {
             plan.setAktualniProstor(sousedniProstor);
             return sousedniProstor.dlouhyPopis() + "\n" + "\n" + "Doktore prosím pomoz mi jsem tu uvězněná a " +
                     "potřebuji se odtud dostat jsem ve Zbrojnici, pomož mi PROSÍM!";
+        } else if (smer.contains("TARDIS")&& kapsy.obsahujePredmet("Rose")){
+            hra.setKonecHry(true);
+            return "Gratuluji právě jste úspěšně dokončili hru.";
+        } else if (smer.contains("TARDIS")&& !kapsy.obsahujePredmet("Rose")){
+            return "Nemohu odejít bez Rose!!! Musím ji zachránit";
         }
         else {
             plan.setAktualniProstor(sousedniProstor);

@@ -20,7 +20,13 @@ public class PrikazMluv implements IPrikaz {
             return "Osoba " + clovek + " se v prostoru nenachází.";
         }
         Rozhovory rozhovor = new Rozhovory(herniPlan, hra);
-        String odpoved = rozhovor.pokec(clovek, "");
+        Batoh kapsy = herniPlan.getBatoh();
+        String odpoved;
+        if (kapsy.obsahujePredmet("sroubovak")&& herniPlan.getAktualniProstor().getNazev().equals("vezeni")){
+            odpoved = rozhovor.pokec(clovek, "sroubovak");
+        } else {
+            odpoved = rozhovor.pokec(clovek, "");
+        }
         return odpoved;
     }
 

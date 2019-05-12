@@ -44,8 +44,9 @@ public class Rozhovory {
             case "Rose":                                                        //zatim BETA
                 if (item.contains("sroubovak")){
                     odpoved = "Pojdmě musíme se odtud dostat";
-                    Clovek rose = new Clovek("Rose");
-                    rose.setSpolecnik(true);
+                    Batoh kapsy = plan.getBatoh();
+                    Vec rose = new Vec("Rose", true);
+                    kapsy.pridejVec(rose);
                 }else{
                     odpoved = "Doktore dostaň mě odsud prosím.";
                 }
